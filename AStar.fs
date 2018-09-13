@@ -7,12 +7,12 @@ type Config<'a> =
         /// </summary>
         neighbours: 'a -> seq<'a>
         /// <summary>
-        /// Given two nodes that are next to each other, return the g cost between them
+        /// Given two nodes that are next to each other, return the g cost between them.
         /// The g cost is the cost of moving from one to the other directly
         /// </summary>
         gCost: 'a -> 'a -> float
         /// <summary>
-        /// Given two nodes, return the f cost between them. This is a heuristic, and is used from a given node to the goal
+        /// Given two nodes, return the f cost between them. This is a heuristic, and is used from a given node to the goal.
         /// Line of site distance is an example of how this might be expressed
         /// </summary>
         fCost: 'a -> 'a -> float
