@@ -18,23 +18,37 @@ type Config<'a> =
         fCost: 'a -> 'a -> float
     }
 
-let private reconstructPath cameFrom final =
-    [final]
-
 let search<'a> start goal config =
-    let rec crawler openSet closedSet gScores fScores cameFrom =
+
+    let rec reconstructPath cameFrom current =
+        seq {
+            yield current
+            match Map.tryFind current cameFrom with
+            | None -> ()
+            | Some next -> yield! reconstructPath cameFrom next
+        }
+
+    let rec crawler closedSet (openSet, gScores, fScores, cameFrom) =
         match List.sortBy (fun n -> Map.find n fScores) openSet with
         | current::_ when current = goal -> Some <| reconstructPath cameFrom current 
         | current::rest ->
             let gScore = Map.find current gScores
-            let neighbours = 
-                config.neighbours current 
-                |> Seq.filter (fun n -> closedSet |> Set.contains n |> not)
-                |> Seq.map (fun n -> n, gScore + config.gCost current n)
-                |> Seq.filter (fun (n, gs) -> Map.containsKey n gScores |> not || gScores.[n] < gs)
-            let newOpen = rest @ (Seq.filter (fun (n, _) -> List.contains n |> not) neighbours |> Seq.toList)
-            crawler rest (Set.add current closedSet) gScores fScores cameFrom
+            config.neighbours current 
+            |> Seq.filter (fun n -> closedSet |> Set.contains n |> not)
+            |> Seq.fold (fun (openSet, gScores, fScores, cameFrom) neighbour ->
+                let tentativeGScore = gScore + config.gCost current neighbour
+                if List.contains neighbour openSet && tentativeGScore >= Map.find neighbour gScores 
+                then (openSet, gScores, fScores, cameFrom)
+                else
+                    let newOpenSet = if List.contains neighbour openSet then openSet else neighbour::openSet
+                    let newGScores = Map.add neighbour tentativeGScore gScores
+                    let newFScores = Map.add neighbour (tentativeGScore + config.fCost neighbour goal) fScores
+                    let newCameFrom = Map.add neighbour current cameFrom
+                    newOpenSet, newGScores, newFScores, newCameFrom
+                ) (rest, gScores, fScores, cameFrom)
+            |> crawler (Set.add current closedSet)
         | _ -> None
+
     let gScores = Map.ofList [start, 0.]
     let fScores = Map.ofList [start, config.fCost start goal]
-    crawler [start] Set.empty gScores fScores Map.empty
+    crawler Set.empty ([start], gScores, fScores, Map.empty)
