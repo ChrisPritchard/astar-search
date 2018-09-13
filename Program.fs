@@ -38,4 +38,9 @@ let main _ =
     let gScore _ _ = 1.
     let fScore (x, y) (gx, gy) = 
         sqrt ((float gx - float x)**2. + (float gy - float y)**2.)
+
+    match AStar.search start goal { neighbours = neighbours; gCost = gScore; fCost = fScore } with
+    | Some path -> printf "Success!"
+    | None -> printf "No Path Found"
+
     0

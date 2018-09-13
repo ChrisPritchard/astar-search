@@ -18,7 +18,7 @@ type Config<'a> =
         fCost: 'a -> 'a -> float
     }
 
-let search<'a> start goal config =
+let search<'a when 'a : comparison> start goal config : seq<'a> option =
 
     let rec reconstructPath cameFrom current =
         seq {
