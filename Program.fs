@@ -47,7 +47,7 @@ let main _ =
 
     match AStar.search start goal { neighbours = neighbours; gCost = gScore; fCost = fScore } with
     | Some path -> 
-        printf "Success! Solution:"
+        printfn "Success! Solution:"
         testArray |> List.mapi (fun y row -> 
             row 
             |> List.mapi (fun x cell -> if Seq.contains (x, y) path then "#" else cell.ToString())
