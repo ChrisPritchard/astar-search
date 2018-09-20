@@ -6,6 +6,16 @@
     <RootNamespace>astar_search</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageVersion>0.0.1</PackageVersion>
+    <PackageId>chrispritchard-astar-search</PackageId>
+    <Title>FSharp Astar Search</Title>
+    <Authors>Christopher Pritchard (https://github.com/ChrisPritchard)</Authors>
+    <Description>Re-usable and immutable AStar Search implementation</Description>
+    <PackageTags>astar</PackageTags>
+    <RepositoryUrl>https://github.com/ChrisPritchard/astar-search</RepositoryUrl>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="AStar.fs" />
     <Compile Include="Program.fs" />
