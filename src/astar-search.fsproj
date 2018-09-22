@@ -1,14 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RootNamespace>astar_search</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageVersion>0.0.1</PackageVersion>
-    <PackageId>chrispritchard-astar-search</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageId>astar-search</PackageId>
     <Title>FSharp Astar Search</Title>
     <Authors>Christopher Pritchard (https://github.com/ChrisPritchard)</Authors>
     <Description>Re-usable and immutable AStar Search implementation</Description>
@@ -18,7 +16,6 @@
 
   <ItemGroup>
     <Compile Include="AStar.fs" />
-    <Compile Include="Program.fs" />
   </ItemGroup>
 
 </Project>
