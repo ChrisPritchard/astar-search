@@ -5,12 +5,13 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <PackageId>astar-search</PackageId>
     <Title>FSharp Astar Search</Title>
     <Authors>Christopher Pritchard (https://github.com/ChrisPritchard)</Authors>
     <Description>Re-usable and immutable AStar Search implementation</Description>
-    <PackageTags>astar</PackageTags>
+    <PackageTags>astar fsharp</PackageTags>
+    <PackageLicenseUrl>http://unlicense.org/</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/ChrisPritchard/astar-search</RepositoryUrl>
   </PropertyGroup>
 
