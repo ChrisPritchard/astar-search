@@ -45,7 +45,7 @@ let main _ =
     let fScore (x, y) (gx, gy) = 
         sqrt ((float gx - float x)**2. + (float gy - float y)**2.)
 
-    match AStar.search start goal { neighbours = neighbours; gCost = gScore; fCost = fScore } with
+    match AStar.search start goal { neighbours = neighbours; gCost = gScore; fCost = fScore; maxIterations = None } with
     | Some path -> 
         printfn "Success! Solution:"
         testArray |> List.mapi (fun y row -> 
