@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <PackageId>astar-search</PackageId>
     <Title>FSharp Astar Search</Title>
     <Authors>Christopher Pritchard (https://github.com/ChrisPritchard)</Authors>
