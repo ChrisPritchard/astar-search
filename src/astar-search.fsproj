@@ -6,7 +6,7 @@
 
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
         <IsPackable>true</IsPackable>
-        <PackageVersion>1.0.3-prerelease</PackageVersion>
+        <PackageVersion>1.0.3-prerelease2</PackageVersion>
         <PackageId>astar-search</PackageId>
         <Title>FSharp Astar Search</Title>
         <Authors>Chris Pritchard</Authors>
