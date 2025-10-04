@@ -50,7 +50,7 @@ let main _ =
         printfn "Success! Solution:"
         testArray |> List.mapi (fun y row -> 
             row 
-            |> List.mapi (fun x cell -> if Seq.contains (x, y) path then "#" else cell.ToString())
+            |> List.mapi (fun x cell -> if Seq.contains (x, y) path then "#" else if cell = ' ' then "." else cell.ToString())
             |> String.concat ""
         ) |> List.iter (printfn "%s")
     | None -> printf "No Path Found"
