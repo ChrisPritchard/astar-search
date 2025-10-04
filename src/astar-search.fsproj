@@ -13,11 +13,14 @@
         <Description>Re-usable and immutable AStar Search implementation</Description>
         <PackageTags>astar;fsharp</PackageTags>
         <PackageIcon>icon.png</PackageIcon>
-        <PackageLicenseUrl>http://unlicense.org/</PackageLicenseUrl>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <RepositoryUrl>https://github.com/ChrisPritchard/astar-search</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
+        <None Include="../LICENSE" Pack="true" PackagePath="" />
+        <None Include="../README.md" Pack="true" PackagePath="" />
         <None Include="../icon.png" Pack="true" PackagePath="" />
         <Compile Include="AStar.fs" />
     </ItemGroup>
