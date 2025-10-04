@@ -4,7 +4,7 @@
 
 A* Search algorithm in F#.
 
-An implementation of the classic algorithm, as described here: <https://en.wikipedia.org/wiki/A*_search_algorithm.>
+An implementation of the classic algorithm, as described here: <https://en.wikipedia.org/wiki/A*_search_algorithm>.
 
 However, in contrast to the pseudo-code shown in that article, this version is implemented in a purely functional and immutable way, as is more idiomatic for F#.
 
